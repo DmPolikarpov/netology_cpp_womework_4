@@ -22,7 +22,7 @@ public:
 
 	void add_element(int a)
 	{
-		if (currIndex + 1 == size) throw std::runtime_error("The array is full!");
+		if (currIndex == size) throw std::runtime_error("The array is full!");
 		arr[currIndex] = a;
 		currIndex++;
 	}
