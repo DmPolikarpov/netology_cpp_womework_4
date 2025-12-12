@@ -8,10 +8,10 @@ T my_pow(T a)
 	return a * a;
 }
 
-template <>
-std::vector<int> my_pow(std::vector<int> a)
+template <typename T1>
+std::vector<T1> my_pow(std::vector<T1> a)
 {
-	std::vector<int> newVector{};
+	std::vector<T1> newVector{};
 
 	for (int i = 0; i < a.size(); i++)
 	{
@@ -20,7 +20,16 @@ std::vector<int> my_pow(std::vector<int> a)
 	return newVector;
 }
 
-void printVector(std::vector<int> a);
+template <typename T>
+void printVector(std::vector<T> a)
+{
+
+	for (int i = 0; i < a.size(); i++)
+	{
+		std::cout << a.at(i) << "  ";
+	}
+	std::cout << std::endl;
+}
 
 int main()
 {
@@ -33,14 +42,4 @@ int main()
 	printVector(c);
 
 	return EXIT_SUCCESS;
-}
-
-void printVector(std::vector<int> a)
-{
-
-	for (int i = 0; i < a.size(); i++)
-	{
-		std::cout << a.at(i) << "  ";
-	}
-	std::cout << std::endl;
 }
